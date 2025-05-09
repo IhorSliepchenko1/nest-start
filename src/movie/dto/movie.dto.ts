@@ -14,4 +14,6 @@ export class MovieDto {
      @IsArray()
      @IsUUID('4', { each: true })
      actorIds: string[]
+
+     imageUrl: string
 }

@@ -10,14 +10,20 @@ import { ActorsModule } from './actors/actors.module';
 
 @Module({
   imports: [
+
     ConfigModule.forRoot({
       isGlobal: true
     }),
+
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: getTypeOrmConfig,
       inject: [ConfigService]
-    }), MovieModule, ReviewModule, ActorsModule],
+    }),
+
+    MovieModule, ReviewModule, ActorsModule
+
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

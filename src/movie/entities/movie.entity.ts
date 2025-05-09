@@ -49,7 +49,6 @@ export class MovieEntity {
      })
      genre: Genre
 
-
      @Column({
           name: 'poster_id',
           type: 'uuid',
@@ -71,9 +70,13 @@ export class MovieEntity {
      })
      releaseDate: string
 
-     @OneToOne(() => MoviePosterEntity, (poster) => poster.movie, { onDelete: "CASCADE" })
+     @OneToOne(() => MoviePosterEntity, (poster) => poster.movie,
+          {
+               onDelete: "CASCADE",
+               nullable: true
+          })
      @JoinColumn({ name: 'poster_id' })
-     poster: MoviePosterEntity
+     poster: MoviePosterEntity | null
 
      @OneToMany(() => ReviewEntity, (review) => review.movie)
      reviews: ReviewEntity[]
@@ -81,8 +84,15 @@ export class MovieEntity {
      @ManyToMany(() => ActorEntity, (actor) => actor.movies)
      @JoinTable({
           name: 'movie_actors',
-          joinColumn: { name: 'movie_id', referencedColumnName: 'id' },
-          inverseJoinColumn: { name: 'actor_id', referencedColumnName: "id" }
+          joinColumn: {
+               name: 'movie_id',
+               referencedColumnName: 'id'
+          },
+
+          inverseJoinColumn: {
+               name: 'actor_id',
+               referencedColumnName: 'id'
+          }
      })
      actors: ActorEntity[]
 

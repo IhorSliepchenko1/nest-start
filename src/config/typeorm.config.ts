@@ -1,7 +1,7 @@
 import { ConfigService } from "@nestjs/config";
 import { type TypeOrmModuleOptions } from "@nestjs/typeorm";
 
-export async function getTypeOrmConfig(configService: ConfigService): Promise<TypeOrmModuleOptions> {
+export const getTypeOrmConfig = async (configService: ConfigService): Promise<TypeOrmModuleOptions> => {
      return {
           type: "postgres",
           host: configService.getOrThrow<string>('POSTGRES_HOST'),

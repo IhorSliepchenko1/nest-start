@@ -12,27 +12,27 @@ export class MovieController {
     return this.movieService.findAll()
   }
 
-  @Get(':id')
-  findById(@Param('id') id: string) {
-    return this.movieService.findById(id)
-  }
+//   @Get(':id')
+//   findById(@Param('id') id: string) {
+//     return this.movieService.findById(id)
+//   }
 
-  @Post()
-  create(@Body() dto: MovieDto) {
-    return this.movieService.create(dto)
-  }
+//   @Post()
+//   create(@Body() dto: MovieDto) {
+//     return this.movieService.create(dto)
+//   }
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: MovieDto) {
-    return this.movieService.update(id, dto)
-  }
+//   @Put(':id')
+//   update(@Param('id') id: string, @Body() dto: MovieDto) {
+//     return this.movieService.update(id, dto)
+//   }
 
 
-  @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.movieService.delete(id)
-  }
-}
+//   @Delete(':id')
+//   delete(@Param('id') id: string) {
+//     return this.movieService.delete(id)
+//   }
+// }
 
 
 // @Get()
@@ -66,4 +66,5 @@ export class MovieController {
 // findId(@Param('id') id: string, @Param('id_2') id_2: string) {
 //   return { id, id_2 }
 
-// }
+  // 
+}

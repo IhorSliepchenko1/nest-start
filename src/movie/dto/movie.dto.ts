@@ -1,4 +1,4 @@
-import { IsArray, IsInt, IsNotEmpty, IsString, IsUUID, Max, Min } from "class-validator"
+import { IsArray, IsInt, IsNotEmpty, IsOptional, IsString, IsUUID, Max, Min } from "class-validator"
 
 export class MovieDto {
      @IsNotEmpty()
@@ -15,5 +15,6 @@ export class MovieDto {
      @IsUUID('4', { each: true })
      actorIds: string[]
 
+     @IsString()
      imageUrl: string
 }

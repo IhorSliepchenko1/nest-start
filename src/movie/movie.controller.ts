@@ -12,59 +12,60 @@ export class MovieController {
     return this.movieService.findAll()
   }
 
-//   @Get(':id')
-//   findById(@Param('id') id: string) {
-//     return this.movieService.findById(id)
-//   }
+  @Post()
+  create(@Body() dto: MovieDto) {
+    return this.movieService.create(dto)
+  }
 
-//   @Post()
-//   create(@Body() dto: MovieDto) {
-//     return this.movieService.create(dto)
-//   }
-
-//   @Put(':id')
-//   update(@Param('id') id: string, @Body() dto: MovieDto) {
-//     return this.movieService.update(id, dto)
-//   }
+  @Get(':id')
+  findById(@Param('id') id: string) {
+    return this.movieService.findById(id)
+  }
 
 
-//   @Delete(':id')
-//   delete(@Param('id') id: string) {
-//     return this.movieService.delete(id)
-//   }
-// }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() dto: MovieDto) {
+    return this.movieService.update(id, dto)
+  }
 
 
-// @Get()
-// findAll(@Query() query: any) {
-//   return JSON.stringify(query)
-// }
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.movieService.delete(id)
+  }
+  // }
 
-// @Post()
-// create(@Body() body: { title: string, genre: string }) {
-//   return body
-// }
 
-// @Get('headers')
-// getHeaders(@Headers("user-agent") userAgent: string) {
-//   return userAgent
-// }
+  // @Get()
+  // findAll(@Query() query: any) {
+  //   return JSON.stringify(query)
+  // }
 
-// @Get('request')
-// getRequelsDetails(@Req() req: Request) {
-//   return {
-//     method: req.method
-//   }
-// }
+  // @Post()
+  // create(@Body() body: { title: string, genre: string }) {
+  //   return body
+  // }
 
-// @Get('response')
-// getResponseDetails(@Res() res: Response) {
-//   res.status(201).json({ message: 'Hello' })
-// }
+  // @Get('headers')
+  // getHeaders(@Headers("user-agent") userAgent: string) {
+  //   return userAgent
+  // }
 
-// @Get(":id/test/:id_2")
-// findId(@Param('id') id: string, @Param('id_2') id_2: string) {
-//   return { id, id_2 }
+  // @Get('request')
+  // getRequelsDetails(@Req() req: Request) {
+  //   return {
+  //     method: req.method
+  //   }
+  // }
+
+  // @Get('response')
+  // getResponseDetails(@Res() res: Response) {
+  //   res.status(201).json({ message: 'Hello' })
+  // }
+
+  // @Get(":id/test/:id_2")
+  // findId(@Param('id') id: string, @Param('id_2') id_2: string) {
+  //   return { id, id_2 }
 
   // 
 }

@@ -13,11 +13,8 @@ import { PrismaModule } from './prisma/prisma.module';
     }),
     PrismaModule,
     AuthModule,
-
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-
-}
+export class AppModule { }

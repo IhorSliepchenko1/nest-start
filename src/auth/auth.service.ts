@@ -19,13 +19,11 @@ export class AuthService {
           private readonly prismaService: PrismaService,
           private readonly configService: ConfigService,
           private readonly jwtService: JwtService
-
      ) {
           this.JWT_ACCESS_TOKEN_TTL = configService.getOrThrow<string>("JWT_ACCESS_TOKEN_TTL")
           this.JWT_REFRESH_TOKEN_TTL = configService.getOrThrow<string>("JWT_REFRESH_TOKEN_TTL")
           this.COOKIE_DOMAIN = configService.getOrThrow<string>("COOKIE_DOMAIN")
      }
-
      async register(res: Response, dto: RegisterRequest) {
           const { name, email, password } = dto
 
@@ -107,6 +105,14 @@ export class AuthService {
           this.setCookies(res, 'refreshToken', new Date(0))
 
           return true
+     }
+
+     async validate(id: string) {
+          const user = await this.prismaService.user.findUnique({ where: { id } })
+
+          if (!user) throw new NotFoundException("Пользователь не найден")
+
+          return user
      }
 
      private auth(res: Response, id: string) {
